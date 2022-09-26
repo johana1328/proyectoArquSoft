@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>SoftParking</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+      
+	<div id="booking" class="section">
+        <div>
+            <img src="log.png" width="60" height="60" class="d-inline-block align-top" alt="">
+            <span class="titlePrinci" >Softpark</span>
+          </div>
+    
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7 col-md-push-5">
+						<div class="author-box aos-init aos-animate booking-form">
+                            <div class="d-flex mb-4"> 
+                                <div class="mr-3">
+                                    <img src="usua.png" alt="Image" class="img-fluid rounded-circle"  >
+                                </div>
+                              <div class="mr-auto text-black" style="padding-top: 17px;">
+                                <strong class="font-weight-bold mb-0" >Información usuario</strong>
+                              </div>
+							</div>	
+                            <div class="form-group " >
+                                <span class="form-label">Factura:</span>
+                                <span><%=factura %> </span>
+                                <br>
+                                <span class="form-label">Documento:</span>
+                                <span><%=documento %></span>
+                                <br>
+                                <span class="form-label">Nombre</span>
+                                <span><%=nombre %></span>
+                                <br>
+                                <span class="form-label">Fecha:</span>
+                                <span><%=fecha %></span>
+                                <br>
+                                <span class="form-label">Valor a pagar:</span>
+                                <span>$<%=valorPaga %></span>
+                            </div>
+						</div>
+					</div>
+					<div class="col-md-4 col-md-pull-7">
+						<div class="booking-form">
+                            <h3>Ingresa la información</h3>
+							<form method="post">
+								<div class="form-group">
+									<span class="form-label">Número de documento</span>
+									<input class="form-control" type="text" placeholder="No Documento" required name="documento" value="<%=documento %>">
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<span class="form-label">Placa</span>
+											<input class="form-control" type="text" required placeholder="Placa" name="placa" value="<%=placa %>">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<span class="form-label">Fecha</span>
+											<input class="form-control" type="datetime-local" required name="fecha" value="<%=fecha %>">
+										</div>
+									</div>
+								</div>
+								<div class="form-btn">
+									<button type="submit" class="submit-btn">Enviar</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
