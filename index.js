@@ -1,4 +1,5 @@
 var express = require('express');
+require('dotenv').config();
 var crearFactura = require('./clienteApi.js')
 var app = express();
 
@@ -18,7 +19,7 @@ const clienteIonfo={
     fecha:'',
     factura:'',
     nombre:'Juana Ruiz',
-    valorPaga:'5.000'
+    valorPaga:''
 };
 
 app.get('/',(req, resp)=>{
@@ -34,10 +35,15 @@ app.post('/',(req, resp)=>{
     clienteIonfo.documento=documento;
     clienteIonfo.placa=placa;
     clienteIonfo.fecha=fecha;
-    let respclinet= crearFactura.crearFactura(clienteIonfo);
+
+     crearFactura.crearFactura(documento,1,5000,(data,responseclient)=>{
+         let data_resp=data.toString();
+         let arrayResp=data_resp.replace(/\[|\]/g,'').replaceAll('"','').split(',');
+        clienteIonfo.factura=arrayResp[0];
+        clienteIonfo.valorPaga=arrayResp[1];
+       resp.render('index',clienteIonfo);
+    });
     
-    console.log(respclinet)
-    resp.render('index',clienteIonfo);
 })
 
 app.listen(8080);
